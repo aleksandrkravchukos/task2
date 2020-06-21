@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  db:
+    container_name: db_move_partition
+    image: mysql
+    ports:
+      - 3307:3306
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+networks:
+  app-network:
+    driver: bridge
