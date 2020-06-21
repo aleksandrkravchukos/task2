@@ -2,10 +2,10 @@ version: '2'
 
 services:
   db:
-    container_name: db_move_partition
+    container_name: db_task2
     image: mysql
     ports:
-      - 3307:3306
+      - 33071:3306
     volumes:
       - "./.data/db:/var/lib/mysql"
     environment:

@@ -21,6 +21,21 @@ Commands from Makefile could be executed manually in case Make utility is not in
 
     docker ps    
     
-## Step 1 - Create Database
+## Create Project Layout
 
-    make create-database   
+Creates test_log table, partitioned by month, and  nop partitioned test_log_backup table.
+Also creates 2 stored procedures that help tocreate new partitions and move partition from main table to backup.
+
+    make create-project
+    
+## Backup data
+
+Moves partition from main table to backup.
+
+     make move-partition database=test tablename_from=test_log tablename_to=test_log_backup partition_month_value=202006   
+     
+## Create new partitions on main table ( schedule on cron before next month start)
+
+The below example creates partition for July 2020.
+
+     make create-partition database=test tablename=test_log partition_month_value=202007   

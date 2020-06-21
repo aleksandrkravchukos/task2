@@ -2,12 +2,13 @@ use test;
 
 DELIMITER ||
 -- Delete stored procedures
-drop procedure if exists create_partition_by_month_if_not_exist ||
+drop procedure if exists create_partition_by_month ||
 -- Note: Using this stored procedure, you must ensure that there is at least one manual partition in the corresponding database table
 -- Create stored procedures[Through database name and corresponding table name]-How many partitions are built and how many partition intervals are there?
 -- databasename: Create partitioned databases
 -- tablename: Name of the table that created the partition
-create procedure create_partition_by_month_if_not_exist (in databasename varchar(50),in tablename varchar(50), in partition_month_value char(6))
+-- partition_month_value: month value in format YYYYMM i.e. 202007
+create procedure create_partition_by_month (in databasename varchar(50),in tablename varchar(50), in partition_month_value char(6))
 L_END:
 begin
     declare is_table_partitioned varchar(255) default 0;
