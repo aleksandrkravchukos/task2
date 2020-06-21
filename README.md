@@ -32,7 +32,7 @@ Also creates 2 stored procedures that help tocreate new partitions and move part
 
 Moves partition from main table to backup.
 
-     make move-partition database=test tablename_from=test_log tablename_to=test_log_backup partition_month_value=202006   
+     make move-partition database=test tablename_from=test_log tablename_to=test_log_backup partition_field=created_month partition_month_value=202005   
      
 ## Create new partitions on main table ( schedule on cron before next month start)
 

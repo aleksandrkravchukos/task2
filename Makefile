@@ -31,4 +31,4 @@ create-partition:
 
 ## Create partition using stored procedure
 move-partition:
-	docker exec -i db_task2 mysql -u root -proot test -e "call move_partition_if_has_data_by_month('$(database)', '$(tablename_from)', '$(tablename_to)', '$(partition_month_value)')"
+	docker exec -i db_task2 mysql -u root -proot test -e "call move_partition_if_has_data_by_month('$(database)', '$(tablename_from)', '$(tablename_to)', '$(partition_field)', '$(partition_month_value)')"
